@@ -7,3 +7,4 @@ const Careco = () => {
 }
 
 export default Careco
+
