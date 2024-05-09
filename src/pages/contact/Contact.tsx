@@ -1,4 +1,4 @@
-import './Contact.sccs'
+import './Contact.scss'
 
 const Contact = () => {
   return (

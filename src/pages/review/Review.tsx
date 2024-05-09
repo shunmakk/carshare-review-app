@@ -1,4 +1,4 @@
-import './Review.sccs'
+import './Review.scss'
 
 const Review = () => {
   return (
