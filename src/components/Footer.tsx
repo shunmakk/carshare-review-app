@@ -2,7 +2,9 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer className='footer'>
+      <p className='footerContent'>copyright @carshare review app.jp</p>
+    </footer>
   )
 }
 

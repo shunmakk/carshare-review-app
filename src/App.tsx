@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <Router>
         <Header/>
+        <div className='main'>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={<Login/>} />
@@ -32,6 +33,7 @@ function App() {
           <Route path='/detail/times' element={<Times/>} />
           <Route path='*' element={<NotFound/>} />
         </Routes>
+        </div>
         <Footer/>
       </Router>
     </div>

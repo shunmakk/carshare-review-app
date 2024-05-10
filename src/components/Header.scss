@@ -1,0 +1,48 @@
+.header{
+    background-color: #F5F5F5;
+    .headerWrapper{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        .headerTitle{
+            .Link{
+                text-decoration: none;
+                h1{
+                font-size: 24px;
+                color: #508FD8;
+                }
+            }
+        }
+        .headerNavgation{
+            ul{
+                display: flex;
+                gap: 20px;
+                .navLink{
+                    text-decoration: none;
+                    li{
+                        list-style: none;
+                        color: #508FD8;
+                        padding: 5px 5px;
+                        transition: 2s;
+                    }
+                    li:hover{
+                        color: white;
+                        background-color: #508FD8;
+                        border-radius: 999px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media  screen and (max-width:768px) {
+    .headerWrapper{
+        flex-direction: column;
+        .headerTitle{
+            margin-bottom: 20px;
+        }
+    }
+}
