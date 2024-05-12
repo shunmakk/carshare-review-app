@@ -1,0 +1,92 @@
+.home{
+    // height: 100vh;
+    overflow-y: scroll;
+    .Top{
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-around;
+        gap: 50px;
+        padding: 100px 100px;
+            .TopLeft{
+                padding-top: 30px;
+                .title,p{
+                    text-align: center;
+                    padding-bottom: 8%;
+                }
+                .TopButton{
+                    padding: 10px 10px;
+                    color: #FFFFFF;
+                    background-color: #508FD8;
+                    border: 1px solid #E4ECF6;
+                    border-radius: 90px;
+                    display: block;
+                    margin: auto;
+                    width: 50%;
+                    transition: 3s;
+                }
+                .TopButton:hover{
+                    cursor: pointer;
+                    background-color: #FFFFFF;
+                    color: #508FD8;;
+                }
+            }
+            .TopRight{
+                display: flex;
+                justify-content: center;
+            }
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    .Top{
+        margin: 100px 0;
+    }
+}
+
+
+@media screen and (max-width:1024px){
+    .Top{
+        margin-top: 30px;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding: 80px 40px;
+        .TopLeft{
+            width: 100%;
+            .title,p{
+                    padding-bottom: 5%;
+                }
+        }
+        .TopRight{
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+//改行用のcss
+.br-sp {
+    display: none;
+  }
+  @media screen and (max-width: 1080px) {
+    .br-pc {
+      display: none;
+    }
+    .br-sp {
+      display: inline-block;
+    }
+  }
+
+
+
+
+//Card boxのレスポンシブcss
+
+@media screen and (max-width:768px){
+    .card{
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}

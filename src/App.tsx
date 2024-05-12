@@ -2,7 +2,7 @@ import './App.scss';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import Home from './pages/home/Home';
 import Header from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Login from './pages/Login/Login';
 import Contact from './pages/contact/Contact';
 import Review from './pages/review/Review';
@@ -34,7 +34,6 @@ function App() {
           <Route path='*' element={<NotFound/>} />
         </Routes>
         </div>
-        <Footer/>
       </Router>
     </div>
   );
