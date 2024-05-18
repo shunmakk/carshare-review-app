@@ -35,6 +35,17 @@
                         border-radius: 999px;
                     }
                 }
+                li{
+                    list-style: none;
+                    color: #508FD8;
+                    padding: 5px 5px;
+                    transition: 2s;
+                }
+                li:hover{
+                    color: white;
+                    background-color: #508FD8;
+                    border-radius: 999px;
+                }
             }
         }
     }

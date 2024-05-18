@@ -15,7 +15,7 @@ const Login = () => {
   const handleLoginwithGoogle = useCallback(async () => {
     try{
       await signInWithPopup(auth,provider)
-      navgate('/review')
+      navgate('/')
       return {success: true, message: 'ログインに成功しました'}
     }catch(e){
       if(e instanceof FirebaseError){

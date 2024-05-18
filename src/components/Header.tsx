@@ -1,8 +1,26 @@
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import { useAppSelector } from '../redux/hook';
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+  const user = useAppSelector((state) => state.user.user);
+
+  const navigate = useNavigate();
+ 
+
+  const handleLogout = () => {
+    const confirm = window.confirm('ログアウトしますか？')
+    if(confirm){
+        auth.signOut();
+        navigate('/');
+    }
+  }
+
+
   return (
     <header className='header'>
       <div className='headerWrapper'>
@@ -11,7 +29,15 @@ const Header = () => {
         </div>
         <nav className='headerNavgation'>
           <ul>
-          <Link to="/login" className='navLink'><li>ログイン/レビューを書く</li></Link>
+            {user ? (
+              <>
+              <li className='navLink' onClick={handleLogout}>ログアウト</li>
+              </>
+            ): 
+              <>
+              <Link to="/login" className='navLink'><li>ログイン</li></Link>
+              </>
+              }
           <Link to="/contact" className='navLink'><li>お問い合わせ</li></Link>
           </ul>
         </nav>

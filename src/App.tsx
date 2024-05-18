@@ -17,6 +17,10 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { login, logout } from './redux/userSlice';
 
+
+
+
+
 function App() {
   const user = useAppSelector((state) => state.user.user);
   const dispatch = useAppDispatch();
