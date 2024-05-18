@@ -4,3 +4,12 @@ export interface CarData {
     img: string,
     url: string,
   }
+
+
+export interface InitialUserState {
+  user: null | {
+    uid: string,
+    email: string,
+    displayName: string
+  }
+}
