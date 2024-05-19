@@ -5,13 +5,17 @@ import { CarData } from '../../utils/type'
 import Grid from "@mui/material/Grid"
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
 import { Link, useNavigate } from 'react-router-dom'
-
+import { useTheme } from '@mui/system';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 const Home = () => {
 
 const [carData ,setCarData] = useState<CarData[]>([]);
 const [gap, setGap] = useState('70px');
+
+const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
 const navigate = useNavigate();
 
@@ -50,12 +54,12 @@ useEffect(() => {
         <div className='TopRight'><img src='./car1.png' alt=""/></div>
       </div>
       <div>
-      <Grid container spacing={2} mt={10} mb={10} gap={gap} justifyContent={"center"}>
+      <Grid container spacing={2} mt={10} mb={10} gap={gap} justifyContent={"center"} marginLeft={'auto'} marginRight={'auto'}>
         {carData.map((car) => {
           return (
             <div key={car.id}>
                <Grid item xs={12} sm={12} md={12}>
-          <Card sx={{width: 450}} className='card'>
+               <Card sx={{ width: isSmallScreen ? 330 : 500 }} className='card'>
           <Link to={car.url} style={{textDecoration: 'none'}}>
             <CardMedia
               sx={{ height: 150, borderBottom: 0.2 }}
@@ -68,7 +72,7 @@ useEffect(() => {
               </Typography>
             </CardContent>
             <CardActions sx={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
-                <Button size="large"　style={{fontSize: '20px'}}>口コミを見る</Button>
+                <Button size="large" style={{fontSize: '20px'}}>口コミを見る</Button>
             </CardActions>
             </Link>
           </Card>
