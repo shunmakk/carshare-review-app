@@ -22,6 +22,18 @@ const Review = () => {
   const [isLoading,setIsLoading] = useState<boolean>(false)
 
 
+  const content = {
+            comment: comment,
+            rateAll: rateAll,
+            fee: fee,
+            support: support,
+            car: car,
+            nickname: nickname,
+            age: age,
+            createdAt: serverTimestamp()
+  }
+
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -33,50 +45,22 @@ const Review = () => {
       switch(company){
         case '1':
           await addDoc(collection(db, 'times'),{
-            comment: comment,
-            rateAll: rateAll,
-            fee: fee,
-            support: support,
-            car: car,
-            nickname: nickname,
-            age: age,
-            createdAt: serverTimestamp()
+            content
           })
         break;
         case '2':
           await addDoc(collection(db, 'orix'),{
-            comment: comment,
-            rateAll: rateAll,
-            fee: fee,
-            support: support,
-            car: car,
-            nickname: nickname,
-            age: age,
-            createdAt: serverTimestamp()
+            content
           })
         break;
         case '3':
           await addDoc(collection(db, 'careco'),{
-            comment: comment,
-            rateAll: rateAll,
-            fee: fee,
-            support: support,
-            car: car,
-            nickname: nickname,
-            age: age,
-            createdAt: serverTimestamp()
+            content
           })
         break;
         case '4':
           await addDoc(collection(db, 'dcarshare'),{
-            comment: comment,
-            rateAll: rateAll,
-            fee: fee,
-            support: support,
-            car: car,
-            nickname: nickname,
-            age: age,
-            createdAt: serverTimestamp()
+           content
           })
         break;
       }
@@ -97,7 +81,7 @@ const Review = () => {
   
       setIsLoading(false)
     } else{
-      window.alert('必須項目が入力されていません')
+      window.alert('必須項目が入力されていません');
     }
    
 
