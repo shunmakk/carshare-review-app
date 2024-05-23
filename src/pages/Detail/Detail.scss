@@ -1,0 +1,83 @@
+.detailWrapper{
+    overflow-y: scroll;
+    .titleWrapper{
+        margin: 30px 0;
+        margin-left: 10%;
+    }
+    .contentWrapper{
+        background-color: white;
+        margin-bottom: 50px;
+        .contentInner{
+            padding: 5% 3%;
+            display: flex;
+            justify-content: center;
+            .contentImg{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+            }
+            .contentDetail{
+                width: 50%;
+            }
+        }
+    }
+    .reviewWrapper{
+        margin-bottom: 50px;
+        .reviewContentInner{
+            margin: 0 auto;
+            width: 85%;
+            background-color: #fff;
+            list-style: none;
+            border-radius: 2px;
+            margin-bottom: 40px;
+            .reviewHead{
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+                .humanImg{
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+                p{
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+            }
+            .reviewRateAll{
+                padding-left: 30px;
+            }
+            .reviewComment{
+                background-color: rgb(243, 242, 242);
+                margin: 20px;
+                border-radius: 20px;
+                p{
+                    padding: 25px;
+                }
+            }
+            .reviewRate{
+                padding-left: 20px;
+                padding-bottom: 30px;
+                padding-top: 5px;
+                .rateEach {
+                    display: flex;
+                    align-items: center; 
+                    justify-content: flex-start; 
+                    margin-top: 20px;
+                    padding-left: 10px;
+                    p {
+                        margin: 0;
+                        width: 80px;
+                      }
+                  }
+                  
+            }
+        }
+    }
+
+}

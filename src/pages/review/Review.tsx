@@ -7,9 +7,12 @@ import { FormEvent, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { useAppSelector } from '../../redux/hook';
 
 
 const Review = () => {
+
+  const user = useAppSelector((state) => state.user.user);
 
   const [company,setCompany] = useState<string>('1');
   const [comment,setComment] =useState<string>('');
@@ -22,16 +25,8 @@ const Review = () => {
   const [isLoading,setIsLoading] = useState<boolean>(false)
 
 
-  const content = {
-            comment: comment,
-            rateAll: rateAll,
-            fee: fee,
-            support: support,
-            car: car,
-            nickname: nickname,
-            age: age,
-            createdAt: serverTimestamp()
-  }
+       
+
 
 
   const handleSubmit = async (e: FormEvent) => {
@@ -45,22 +40,58 @@ const Review = () => {
       switch(company){
         case '1':
           await addDoc(collection(db, 'times'),{
-            content
+            user:   user?.uid,
+            email:  user?.email,
+            comment: comment,
+            rateAll: rateAll,
+            fee: fee,
+            support: support,
+            car: car,
+            nickname: nickname,
+            age: age,
+            createdAt: serverTimestamp()
           })
         break;
         case '2':
           await addDoc(collection(db, 'orix'),{
-            content
+            user:   user?.uid,
+            email:  user?.email,
+            comment: comment,
+            rateAll: rateAll,
+            fee: fee,
+            support: support,
+            car: car,
+            nickname: nickname,
+            age: age,
+            createdAt: serverTimestamp()
           })
         break;
         case '3':
           await addDoc(collection(db, 'careco'),{
-            content
+            user:   user?.uid,
+            email:  user?.email,
+            comment: comment,
+            rateAll: rateAll,
+            fee: fee,
+            support: support,
+            car: car,
+            nickname: nickname,
+            age: age,
+            createdAt: serverTimestamp()
           })
         break;
         case '4':
           await addDoc(collection(db, 'dcarshare'),{
-           content
+            user:   user?.uid,
+            email:  user?.email,
+            comment: comment,
+            rateAll: rateAll,
+            fee: fee,
+            support: support,
+            car: car,
+            nickname: nickname,
+            age: age,
+            createdAt: serverTimestamp()
           })
         break;
       }
