@@ -15,6 +15,7 @@
                 width: 50%;
                 display: flex;
                 justify-content: center;
+                cursor: pointer;
             }
             .contentDetail{
                 width: 50%;
@@ -80,4 +81,63 @@
         }
     }
 
+}
+
+
+//以下レスポンシブ
+@media screen and (max-width:768px){
+    .detailWrapper{
+        .titleWrapper{
+            text-align: center;
+            margin-left: 0;
+        }
+        .contentWrapper{
+            .contentInner{
+                padding: 10% 10%;
+                flex-direction: column;
+                gap: 30px;
+                .contentImg{
+                    width: 100%;
+                    justify-content: center;
+                }
+                .contentDetail{
+                    width: 100%;
+                }
+            }
+        }
+        .reviewWrapper{
+            .reviewContentInner{
+                width: 95%;
+                .reviewHead{
+                    gap: 17px;
+                    p{
+                        font-size: 1.1rem;
+                    }
+                }
+                .reviewRateAll{
+                    padding-left: 35px;
+                }
+                .reviewComment{
+                    margin: 15px;
+                    p{
+                        padding: 20px;
+                    }
+                }
+                .reviewRate{
+                    padding-left: 20px;
+                    padding-bottom: 20px;
+                    padding-top: 5px;
+                    .rateEach {
+                        margin-top: 10px;
+                        padding-left: 10px;
+                        p {
+                            margin: 0;
+                            width: 80px;
+                          }
+                      }
+                      
+                }
+            }
+        }
+    }
 }
