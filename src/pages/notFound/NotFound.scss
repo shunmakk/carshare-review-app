@@ -1,0 +1,12 @@
+.notFoundWrapper{
+    height: 100vh;
+    background-color: white;
+    .notFoundAlert{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+    }
+}
+
+
