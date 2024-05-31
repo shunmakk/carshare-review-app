@@ -10,6 +10,7 @@ const NotFound = () => {
       <Alert severity='error' >404エラー</Alert>
     </Stack>
    </div>
+   <div className='message'>このページは存在しません</div>
    </div>
   )
 }
