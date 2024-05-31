@@ -31,6 +31,7 @@ const Header = () => {
           <ul>
             {user ? (
               <>
+             <Link to="/review" className='navLink'><li>レビューを書く</li></Link>
               <li className='navLink' onClick={handleLogout}>ログアウト</li>
               </>
             ): 
