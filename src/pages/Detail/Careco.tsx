@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import './Detail.scss';
 import { DocumentData, getDocs, orderBy, query, collection ,deleteDoc,doc} from 'firebase/firestore';
 import { db ,auth} from '../../firebase';
-import { Rating } from '@mui/material';
+import { Rating,Button } from '@mui/material';
 import { useAppSelector } from '../../redux/hook';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Careco = () => {
 
@@ -72,9 +73,11 @@ const Careco = () => {
                   <Rating value={careco.car} readOnly size='small' />
                 </div>
               </div>
+              <div className='delete'>
               {user && careco.user === auth.currentUser?.uid && (
-                <button onClick={() => DeleteButton(careco.id)}>投稿を削除</button>
+                <Button startIcon={<DeleteIcon />}  variant='outlined' onClick={() => DeleteButton(careco.id)}>投稿を削除</Button>
               )}
+              </div>
             </li>
           ))}
         </ul>
