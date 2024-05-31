@@ -1,21 +1,36 @@
 import { useEffect, useState } from 'react';
 import './Detail.scss';
-import { DocumentData, getDocs, orderBy, query, collection } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { DocumentData, getDocs, orderBy, query, collection ,deleteDoc,doc} from 'firebase/firestore';
+import { db ,auth} from '../../firebase';
 import { Rating } from '@mui/material';
+import { useAppSelector } from '../../redux/hook';
 
 const Careco = () => {
+
+  const user = useAppSelector((state) => state.user.user);
+
+
   const [getCareco, setGetCarecos] = useState<DocumentData[]>([]);
 
   const fetchCarecos = async () => {
     const q = await getDocs(query(collection(db, 'careco'), orderBy("createdAt")));
-    const getAll = q.docs.map((doc) => doc.data());
+    const getAll = q.docs.map((doc) => {
+      return { id: doc.id, ...doc.data()};
+    });
     setGetCarecos(getAll);
   }
 
   useEffect(() => {
     fetchCarecos();
   }, []);
+
+  const DeleteButton = async (id :string) => {
+    const DeleteConfirm = window.confirm('本当に投稿を削除しますか？');
+    if(DeleteConfirm){
+      await deleteDoc(doc(db, 'careco', id));
+      window.location.reload();
+    }
+  }
 
   return (
     <div className='detailWrapper'>
@@ -31,7 +46,7 @@ const Careco = () => {
       <div className='reviewWrapper'>
         <ul className='reviewContent'>
           {getCareco.map((careco) => (
-            <li className='reviewContentInner' key={careco.rateAll}>
+            <li className='reviewContentInner' key={careco.id}>
               <div className='reviewHead'>
                 <img src='/tokumei.jpeg' alt="画像" className='humanImg' />
                 <p>{careco.nickname ? careco.nickname : '匿名'}</p>
@@ -57,6 +72,9 @@ const Careco = () => {
                   <Rating value={careco.car} readOnly size='small' />
                 </div>
               </div>
+              {user && careco.user === auth.currentUser?.uid && (
+                <button onClick={() => DeleteButton(careco.id)}>投稿を削除</button>
+              )}
             </li>
           ))}
         </ul>

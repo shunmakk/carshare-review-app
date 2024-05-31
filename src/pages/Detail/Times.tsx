@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react'
 import './Detail.scss'
-import { DocumentData ,getDocs, orderBy, query,collection} from 'firebase/firestore'
-import { db } from '../../firebase'
+import { DocumentData, getDocs, orderBy, query, collection, deleteDoc,doc } from 'firebase/firestore'
+import { db,auth } from '../../firebase'
 import { Rating } from '@mui/material'
+import { useAppSelector } from '../../redux/hook'
 
 
 const Times = () => {
+
+  const user = useAppSelector((state) => state.user.user);
 
   const [getTimes, setGetTimes] = useState<DocumentData[]>([])
 
   const Times = async () => {
     const q = await getDocs(query(collection(db, 'times'),orderBy("createdAt")));
     const getAll = q.docs.map((doc) => {
-      return doc.data();
+      return { id: doc.id, ...doc.data()};
     });
 
     setGetTimes(getAll);
@@ -21,6 +24,15 @@ const Times = () => {
   useEffect(() => {
     Times();
   },[]);
+
+  //削除
+  const DeleteButton = async (id: string) => {
+    const DeleteConfirm = window.confirm('本当に削除しますか？');
+    if (DeleteConfirm) {
+      await deleteDoc(doc(db, 'orix', id));
+      window.location.reload();
+    }
+  }
 
 
 
@@ -38,7 +50,7 @@ const Times = () => {
       <div className='reviewWrapper'>
         <ul className='reviewContent'>
           {getTimes.map((times) => (
-            <li className='reviewContentInner' key={times.rateAll}>
+            <li className='reviewContentInner' key={times.id}>
               <div className='reviewHead'>
                 <img src='/tokumei.jpeg'  alt="画像" className='humanImg' />
                 <p>{times.nickname ? times.nickname : '匿名'}</p>
@@ -63,8 +75,10 @@ const Times = () => {
                   <p>車内</p>
                   <Rating  value={times.car}  readOnly  size='small' />
                 </div>
-
               </div>
+              {user && times.user === auth.currentUser?.uid && (
+                <button onClick={() => DeleteButton(times.id)}>投稿を削除</button>
+              )}
             </li>
           ))}
         </ul>
