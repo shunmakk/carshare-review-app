@@ -6,6 +6,7 @@ import { signInWithPopup} from "firebase/auth";
 import {auth,provider} from "../../firebase"
 import { FirebaseError } from 'firebase/app';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer';
 
 
 const Login = () => {
@@ -39,6 +40,7 @@ const Login = () => {
         </div> */}
       </div>
     </div>
+    <Footer/>
     </>
   )
 }

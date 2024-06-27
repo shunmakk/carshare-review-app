@@ -7,6 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useAppSelector } from '../../redux/hook';
+import Footer from '../../components/Footer';
 
 const Review = () => {
 
@@ -83,7 +84,8 @@ const Review = () => {
   }
 
   return (
-    <div className='review'>
+    <>
+     <div className='review'>
       <Toaster />
       <div className='reviewWrapper'>
         <h2 className='reviewTitle'>レビューを書く</h2>
@@ -172,6 +174,9 @@ const Review = () => {
         </form>
       </div>
     </div>
+    <Footer/>
+    </>
+    
   )
 }
 

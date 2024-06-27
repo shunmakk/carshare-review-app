@@ -5,6 +5,7 @@ import { db,auth } from '../../firebase'
 import { Rating,Button } from '@mui/material'
 import { useAppSelector } from '../../redux/hook'
 import DeleteIcon from '@mui/icons-material/Delete';
+import Footer from '../../components/Footer'
 
 
 const Orix = () => {
@@ -77,13 +78,14 @@ const Orix = () => {
               </div>
               <div className='delete'>
               {user && orix.user === auth.currentUser?.uid && (
-                <Button　startIcon={<DeleteIcon />}  variant='outlined'　onClick={() => DeleteButton(orix.id)}>投稿を削除</Button>
+                <Button startIcon={<DeleteIcon />}  variant='outlined'　onClick={() => DeleteButton(orix.id)}>投稿を削除</Button>
               )}
               </div>
             </li>
           ))}
         </ul>
       </div>
+      <Footer/>
     </div>
   )
 }

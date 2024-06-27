@@ -5,6 +5,7 @@ import { db ,auth} from '../../firebase';
 import { Rating,Button } from '@mui/material';
 import { useAppSelector } from '../../redux/hook';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Footer from '../../components/Footer';
 
 const Careco = () => {
 
@@ -82,6 +83,7 @@ const Careco = () => {
           ))}
         </ul>
       </div>
+      <Footer/>
     </div>
   );
 }

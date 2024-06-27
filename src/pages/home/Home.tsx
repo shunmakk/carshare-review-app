@@ -7,6 +7,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@
 import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/system';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Footer from '../../components/Footer'
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const theme = useTheme();
 const navigate = useNavigate();
 
 const handleMoveReview = () => {
-  navigate('/review')
+  navigate('/review');
 }
 
 useEffect(() => {
@@ -83,6 +84,7 @@ useEffect(() => {
         )}
         </Grid>
       </div>
+      <Footer/>
     </main>
   )
 }

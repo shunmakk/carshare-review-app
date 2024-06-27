@@ -8,6 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import './Contact.scss'
+import Footer from '../../components/Footer';
 
 const FormField = styled(FormControl)({
   width: '100%',
@@ -86,6 +87,7 @@ const Contact = () => {
     }
   };
   return (
+    <>
     <Container maxWidth="md" sx={{ overflowY: 'scroll',  paddingTop: '50px', paddingBottom: '30px'
     }}>
       <Toaster />
@@ -138,6 +140,10 @@ const Contact = () => {
         </form>
       </div>
     </Container>
+    <Footer/>
+    </>
+ 
+
   );
 };
 
