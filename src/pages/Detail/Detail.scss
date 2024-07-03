@@ -135,7 +135,6 @@
                             width: 80px;
                           }
                       }
-                      
                 }
             }
         }
@@ -146,3 +145,35 @@
    padding-left: 30px;
    padding-bottom: 10px;
  }
+
+
+ //ページネーションのクラス
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  .pagination li {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .pagination li a {
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  .pagination li a:hover {
+    background-color: #ddd;
+  }
+  .pagination .active a {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+  }
+
+  
