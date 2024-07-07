@@ -8,9 +8,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/system';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Footer from '../../components/Footer'
+import { useAppSelector } from '../../redux/hook'
 
 
 const Home = () => {
+
+ const user = useAppSelector((state) => state.user.user);
 
 const [carData ,setCarData] = useState<CarData[]>([]);
 const [gap, setGap] = useState('70px');
@@ -21,7 +24,12 @@ const theme = useTheme();
 const navigate = useNavigate();
 
 const handleMoveReview = () => {
-  navigate('/review');
+  if(!user){
+    window.alert('レビューを書くにはログインする必要があります')
+    navigate('/login');
+  } else{
+    navigate('/review');
+  }
 }
 
 useEffect(() => {
